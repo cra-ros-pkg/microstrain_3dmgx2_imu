@@ -454,10 +454,11 @@ public:
 		      orientation[2], orientation[5], orientation[8]);
     
     double r, p, y;
+    tf::Quaternion quat;
     mat.getRPY(r, p, y);
-    quat.setRPY(r, -p, -y)
+    quat.setRPY(r, -p, -y);
     tf::quaternionTFToMsg(quat, data.orientation);
-      
+
     data.header.stamp = ros::Time::now().fromNSec(time);
   }
 
